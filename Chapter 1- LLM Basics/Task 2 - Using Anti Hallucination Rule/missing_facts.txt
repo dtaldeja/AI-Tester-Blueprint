@@ -1,0 +1,42 @@
+Missing Facts for VWO Login Dashboard Test Case Generation
+========================================================
+
+The following facts were not explicitly provided in the PRD and therefore should be treated as missing or unknown before generating test cases:
+
+1. Exact UI elements and labels
+- The PRD mentions a login interface, but it does not provide the exact list of fields, buttons, links, or labels present on the page.
+
+2. Exact validation rules
+- The PRD states that email format validation and password strength feedback exist, but it does not define the exact validation rules, accepted formats, or error text.
+
+3. Exact authentication behavior
+- The PRD mentions email/password login, but it does not specify the exact success or failure behavior, redirect destination, or login confirmation message.
+
+4. Exact password reset behavior
+- The PRD mentions forgot password and recovery flows, but it does not define the precise reset process, confirmation message, or recovery method.
+
+5. Exact session timeout value
+- The PRD mentions configurable session timeout, but it does not provide the actual configured timeout duration.
+
+6. Exact MFA/SSO implementation details
+- The PRD references optional 2FA and enterprise SSO, but it does not provide the exact implementation flow, supported providers, or user-facing steps.
+
+7. Exact security and rate-limiting behavior
+- The PRD mentions rate limiting and security controls, but it does not provide the exact threshold values or enforcement behavior.
+
+8. Exact accessibility implementation details
+- The PRD mentions accessibility support, but it does not provide the specific ARIA labels, keyboard interaction behavior, or assistive technology requirements.
+
+9. Exact performance measurement criteria
+- The PRD mentions loading targets, but it does not provide the exact environment, test tool, or measurement method for verification.
+
+10. Exact visual design details
+- The PRD mentions branding, themes, and responsive design, but it does not define the precise layout, colors, or visual states.
+
+11. Missing assumptions used for earlier test generation
+- Earlier test cases may have used common industry assumptions such as specific error messages, login page elements, and default security flow behavior.
+- These assumptions should not be treated as verified facts unless they are explicitly present in the PRD.
+
+Summary
+-------
+Any test case that depends on specific UI text, exact validation logic, exact error messages, or exact timeout/SSO/MFA behavior should be marked as unverified until the missing facts are provided.
