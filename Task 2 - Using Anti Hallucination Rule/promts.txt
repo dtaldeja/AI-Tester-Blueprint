@@ -1,5 +1,0 @@
-Prompt 1 : use this prd doc to generate the test cases for login dashboard as per industry standard. plz ensure that test cases generated should be in downloded format.d, test scenario, test data, test steps, test results. design the test cases such that it can be downloaded in excel format. do not use any rule file to generate the test cases.
-
-Prompt 2: now strictly use the anti hallucination.md file and generate the test cases for login dashboard in the downloaded format. use the same fomat as used for earlier test case generation.
-
-Prompt 3: help me understand the missing facts that AI was using to generate test cases before using hallucination rules in bulleted points format.
