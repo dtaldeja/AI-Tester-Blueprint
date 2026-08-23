@@ -44,7 +44,7 @@ def call_ollama(prompt, settings):
     response = requests.post(
         f"{ollama_url}/api/generate",
         json=payload,
-        timeout=60,
+        timeout=180,
     )
 
     if response.status_code != 200:
@@ -65,7 +65,7 @@ def call_groq(prompt, settings):
     }
 
     payload = {
-        "model": "llama-3.1-8b-instant",
+        "model": settings.get("groq_model") or "openai/gpt-oss-20b",
         "messages": [
             {
                 "role": "user",
@@ -79,7 +79,7 @@ def call_groq(prompt, settings):
         "https://api.groq.com/openai/v1/chat/completions",
         headers=headers,
         json=payload,
-        timeout=60,
+        timeout=120,
     )
 
     if response.status_code != 200:

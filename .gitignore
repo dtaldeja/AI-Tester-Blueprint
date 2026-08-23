@@ -1,0 +1,13 @@
+# Local credentials and generated settings
+.env
+**/.env
+settings.json
+**/settings.json
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+
+# Local virtual environments
+.venv/
+venv/

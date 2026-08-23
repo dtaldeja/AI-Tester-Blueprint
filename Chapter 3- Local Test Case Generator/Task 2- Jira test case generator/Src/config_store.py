@@ -4,6 +4,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from jira_client import normalize_jira_base_url
+
 BASE_DIR = Path(__file__).resolve().parent
 ENV_PATH = BASE_DIR / ".env"
 CONFIG_PATH = BASE_DIR / "settings.json"
@@ -18,6 +20,7 @@ DEFAULT_SETTINGS = {
     "ollama_model": os.getenv("OLLAMA_MODEL", "gemma3:1b"),
     "llm_provider": os.getenv("LLM_PROVIDER", "ollama"),
     "groq_api_key": os.getenv("GROQ_API_KEY", ""),
+    "groq_model": os.getenv("GROQ_MODEL", "openai/gpt-oss-20b"),
 }
 
 
@@ -37,6 +40,9 @@ def load_settings():
     # Ensure provider falls back safely to ollama if blank.
     if not settings.get("llm_provider"):
         settings["llm_provider"] = "ollama"
+
+    if settings.get("jira_url"):
+        settings["jira_url"] = normalize_jira_base_url(settings["jira_url"])
 
     return settings
 

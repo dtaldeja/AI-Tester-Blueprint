@@ -5,7 +5,7 @@ from pathlib import Path
 import streamlit as st
 
 from config_store import load_settings, save_settings
-from jira_client import fetch_jira_issue, extract_jira_key
+from jira_client import configured_issue_key, fetch_jira_issue, extract_jira_key
 from llm_client import generate_test_cases
 
 
@@ -37,10 +37,13 @@ with chat_placeholder:
         with st.chat_message(role):
             st.markdown(content)
 
-user_prompt = st.chat_input("Describe the Jira ticket you want test cases for...")
+default_key = configured_issue_key(settings) or ""
+user_prompt = st.chat_input(
+    "Describe the Jira ticket you want test cases for..."
+)
 
 if user_prompt:
-    jira_key = extract_jira_key(user_prompt)
+    jira_key = extract_jira_key(user_prompt) or default_key
     if not jira_key:
         response_text = "I could not find a Jira issue key in your request. Example: 'create test cases for QA-102'."
         st.session_state.chat_history.append(("user", user_prompt))
